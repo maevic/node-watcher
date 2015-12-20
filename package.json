@@ -1,0 +1,18 @@
+{
+    "name": "watcher",
+    "version": "1.0.0",
+    "description": "",
+    "main": "lib/watcher.js",
+    "bin": {
+        "watcher": "bin/watcher.js"
+    },
+    "dependencies": {
+        "chokidar": "^1.4.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Kob",
+    "license": "MIT"
+}
