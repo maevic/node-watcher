@@ -10,18 +10,25 @@ Create a configuration file in the fashion of the following example.
 
 ```javascript
 module.exports = {
-    // The directory which will be watched. If falsy, the parent directory of this module will be watched.
-    directory: '',
-    // ignore can be a string, regex, function or an array containing any of them. Has to be anymatch compatible, see https://github.com/es128/anymatch
-    ignore: [
+    directory: '.', // The directory which will be watched. If falsy, the parent directory of this module will be watched.
+    ignore: [ // ignore can be a string, regex, function or an array containing any of them. Has to be anymatch compatible, see https://github.com/es128/anymatch
         /node_modules/,
         /\.git/
     ],
     delay: 1000,
-    // The command to be executed to watch sass files. Leave empty to don't use sass.
-    sass: 'sass --watch client',
-    // The command to be executed when a change occurs. Leave empty to don't use rsync.
-    rsync: ''
+    // The commands to be executed on certain events. Can be a command line string or a function returning such a string. If the »command« is empty or returns an empty string it will not be executed.
+    commandsOnStart: [{
+        name: 'sass',
+        command: 'sass --watch .:.'
+    }],
+    commandsOnChange: [{
+        name: 'upload',
+        command: function(event, file) {
+            if (event === 'Change') {
+                return 'ncftpput -u user -p password ftp.server.com /srv/http/project "' + file + '"';
+            }
+        }
+    }]
 };
 ```
 
