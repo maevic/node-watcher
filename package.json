@@ -1,18 +1,23 @@
 {
-    "name": "watcher",
-    "version": "1.0.0",
-    "description": "",
-    "main": "lib/watcher.js",
-    "bin": {
-        "watcher": "bin/watcher.js"
-    },
-    "dependencies": {
-        "chokidar": "^1.4.1"
-    },
-    "devDependencies": {},
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "Kob",
-    "license": "MIT"
+  "name": "watcher",
+  "version": "1.0.0",
+  "description": "The watcher will utilize sass and rsync to compile scss files and upload changed files to a remote server.",
+  "main": "lib/watcher.js",
+  "bin": {
+    "watcher": "bin/watcher.js"
+  },
+  "dependencies": {
+    "chokidar": "^1.4.1",
+    "colors": "^1.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kob",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.webbls.com:misc/watcher.git"
+  }
 }
