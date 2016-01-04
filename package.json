@@ -1,7 +1,7 @@
 {
-  "name": "watcher",
+  "name": "node-watcher",
   "version": "1.0.0",
-  "description": "The watcher will utilize sass and rsync to compile scss files and upload changed files to a remote server.",
+  "description": "The watcher will run user defined commands when a file changes.",
   "main": "lib/watcher.js",
   "bin": {
     "watcher": "bin/watcher.js"
