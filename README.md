@@ -52,7 +52,7 @@ var config = {
 module.exports = config;
 ```
 
-Name the file `watcherConfig.js` to make the module autoload it, or name it whatever you want and pass the path to the module.
+Name the file `watcherConfig.js` to make the module autoload it, or name it whatever you want and pass the path as an argument.
 
 ### Locally installed
 Require and use it.
@@ -65,5 +65,3 @@ watcher('myConfig.js'); // The module uses myConfig.js
 
 ### Globally installed
 Call it from the terminal using `watcher` to use watcherConfig.js as the configuration file or `watcher myConfig.js` to use myConfig.js as the configuration file.
-
-And as always: Thanks for watching.
