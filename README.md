@@ -28,7 +28,8 @@ var rsync = {
 };
 
 var sass = {
-    command: 'sass --watch css'
+    command: 'sass --watch css',
+    delay: 100 // Wait 100 ms before executing this command
 };
 
 var config = {
@@ -37,7 +38,7 @@ var config = {
         /node_modules/,
         /\.git/
     ],
-    delay: 1000,
+    delay: 1000, // Delay the execution of the commands on change in ms
     commandsOnStart: [
         sass
     ],
