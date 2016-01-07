@@ -17,6 +17,11 @@
   "scripts": {
     "test": "mocha"
   },
+  "keywords": [
+    "watch",
+    "watcher",
+    "command"
+  ],
   "author": "Markus Kobisch",
   "license": "MIT",
   "repository": {
