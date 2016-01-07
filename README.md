@@ -57,7 +57,7 @@ Name the file `watcherConfig.js` to make the module autoload it, or name it what
 ### Locally installed
 Require and use it.
 ```javascript
-var watcher = require('watcher');
+var watcher = require('node-watch-changes');
 
 watcher(); // The module uses watcherConfig.js
 watcher('myConfig.js'); // The module uses myConfig.js
