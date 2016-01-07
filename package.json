@@ -20,7 +20,8 @@
   "keywords": [
     "watch",
     "watcher",
-    "command"
+    "command",
+    "change"
   ],
   "author": "Markus Kobisch",
   "license": "MIT",
