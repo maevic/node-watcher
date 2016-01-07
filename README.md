@@ -3,8 +3,8 @@
 Run user defined commands on file changes.
 
 ## Installation
-`npm install node-watcher`  
-`npm install -g node-watcher`
+`npm install node-watch-changes`  
+`npm install -g node-watch-changes`
 
 ## Usage
 Create a configuration file in the fashion of the following example.
