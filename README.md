@@ -39,6 +39,7 @@ var config = {
         /\.git/
     ],
     delay: 1000, // Delay the execution of the commands on change in ms
+    verbosity: 'normal', // Possible values are: minimal, normal, verbose
     commandsOnStart: [
         sass
     ],
