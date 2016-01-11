@@ -3,7 +3,7 @@
 process.env.testing = true;
 
 var expect = require('chai').expect;
-var watcher = require('../lib/watcher').test;
+var watcher = require('../lib/node-watcher').test;
 
 describe('Command parsing', function() {
     describe('parseCommands(pm2 startOrRestart test.json && pm2 logs; pm2 kill)', function() {
