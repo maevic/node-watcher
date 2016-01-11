@@ -1,6 +1,6 @@
 {
   "name": "node-watch-changes",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Run user defined commands on file changes.",
   "main": "lib/node-watcher.js",
   "bin": {
