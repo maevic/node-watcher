@@ -10,27 +10,21 @@ Run user defined commands on file changes.
 Create a configuration file in the fashion of the following example.
 
 ```javascript
-// Define your commands. They can be either a string or a function returning a string.
-// If such a function doesn't return a string, no command will be executed.
+// Define the callbacks. Available are onStart, onChange and onEnd. They all get a spawn parameter, which is a promisified version of node's child_process.spawn. The onChange callback additionally gets an events object.
 
-var ftp = {
-	name: 'Upload html files on change via NcFTP',
-	command: function(event, file) {
-		if (event === 'change' && file.match(/\.html$/)) {
-			return 'ncftpput -u user -p password ftp.server.com /srv/http/project "' + file + '"';
-		}
+const onStart = (spawn) => {
+	console.log('Watcher is running...');
+};
+
+const onChange = async (events, spawn) => {
+	if (events.change) {
+		await spawn('npm run sass');
+		await spawn('rsync -aP --delete --exclude "node_modules" "./" "server:/path/to/destination"');
 	}
 };
 
-var rsync = {
-	name: 'Rsync on changes',
-	sync: true,
-	command: 'rsync -aP --delete --exclude "node_modules" "./" "server:/path/to/destination"'
-};
-
-var sass = {
-	command: 'sass --watch css',
-	delay: 100 // Wait 100 ms before executing this command
+const onEnd = (spawn) => {
+	console.log('Watcher is terminating.');
 };
 
 var config = {
@@ -39,18 +33,11 @@ var config = {
 		/node_modules/,
 		/\.git/
 	],
-	delay: 1000, // Delay the execution of the commands on change in ms
-	sync: false, // Default value for all commands that don't specify a sync property themselves. An exception are the commands on end, which will always run synchronously to ensure a proper clean up.
+	delay: 400, // Delay the execution of the commands on change in ms
 	verbosity: 'normal', // Possible values are: minimal, normal, verbose
-	commandsOnStart: [
-		sass
-	],
-	commandsOnChange: [
-		rsync
-	],
-	commandsOnEnd: [
-
-	]
+	onStart: onStart,
+	onChange: onChange,
+	onEnd: onEnd
 };
 
 module.exports = config;

@@ -6,31 +6,6 @@ var expect = require('chai').expect;
 var watcher = require('../lib/node-watcher').test;
 
 describe('Command parsing', function() {
-	describe('parseCommands(pm2 startOrRestart test.json && pm2 logs; pm2 kill)', function() {
-		var parsedCommands = watcher.parseCommands('pm2 startOrRestart test.json && pm2 logs; pm2 kill');
-
-		it('should return an array', function() {
-			expect(parsedCommands).is.an('array');
-		});
-
-		describe('the contents of it should be', function() {
-			it('[0] === { command: pm2, arguments: [ startOrRestart, test.json ] }', function() {
-				expect(parsedCommands[0].command).to.equal('pm2');
-				expect(parsedCommands[0].arguments).to.have.all.members(['startOrRestart', 'test.json']);
-			});
-
-			it('[1] === { command: pm2, arguments: [ logs ] }', function() {
-				expect(parsedCommands[1].command).to.equal('pm2');
-				expect(parsedCommands[1].arguments).to.have.all.members(['logs']);
-			});
-
-			it('[2] === { command: pm2, arguments: [ kill ] }', function() {
-				expect(parsedCommands[2].command).to.equal('pm2');
-				expect(parsedCommands[2].arguments).to.have.all.members(['kill']);
-			});
-		});
-	});
-
 	describe('parseCommand(pm2 logs)', function() {
 		var parsedCommand = watcher.parseCommand('pm2 logs');
 
