@@ -43,7 +43,7 @@ var config = {
 module.exports = config;
 ```
 
-Name the file `watcherConfig.js` to make the module autoload it, or name it whatever you want and pass the path as an argument.
+Name the file `.watcher-config.js` to make the module autoload it, or name it whatever you want and pass the path as an argument.
 
 ### Locally installed
 Require and use it.
