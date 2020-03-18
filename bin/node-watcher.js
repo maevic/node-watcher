@@ -1,4 +1,4 @@
-#!/bin/env node
+#!/usr/bin/env node
 
 var watcher = require('../lib/node-watcher.js');
 
