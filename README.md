@@ -28,7 +28,7 @@ const onEnd = (spawn) => {
 };
 
 var config = {
-	directory: '.', // The directory which will be watched for changes. If falsy, the parent directory of this module will be watched.
+	directory: '.', // The directory which will be watched for changes. If falsy, the parent directory of this module will be watched. Can be a string or an array of strings.
 	ignore: [ // ignore can be a string, regex, function or an array containing any of them. Has to be anymatch compatible, see https://github.com/es128/anymatch
 		/node_modules/,
 		/\.git/
